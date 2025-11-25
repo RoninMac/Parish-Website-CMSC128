@@ -1,0 +1,30 @@
+{% extends 'adminBase.html' %}
+{% load static %}
+{% block title %}Admin Login - Virgen Dela Candelaria Parish{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/adminBaseStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/adminStyle.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{%block content %}
+    <div class = "wrapper">
+        <form action = "">
+            <h1>Login</h1>
+            <div class = "input-box">
+                <input type = "text" required = "required" placeholder="Email address">
+            </div>
+            <div class = "input-box">
+                <input type = "password" required = "required" placeholder="Password">
+            </div>
+            <div class = "create-new-admin">
+                <a href = "">Create new admin</a>
+            </div>
+
+            <button type = "submit" class = "btn">Submit</button>  
+        </form>
+    </div>
+{% endblock %}

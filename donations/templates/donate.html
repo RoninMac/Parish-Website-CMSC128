@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Donate – Virgen Dela Candelaria Parish{% endblock %}
+
+{% block content %}
+<section class="section">
+  <h1>Make a Donation</h1>
+  <p>Your generosity helps sustain our parish’s mission and ministries. Thank you!</p>
+
+  <form method="post" class="donation-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Donation</button>
+  </form>
+</section>
+{% endblock %}
