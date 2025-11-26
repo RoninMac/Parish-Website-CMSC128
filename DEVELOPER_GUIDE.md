@@ -3,6 +3,15 @@
 ## Project Overview
 A Django-based website for Virgen Dela Candelaria Parish featuring public pages, email subscriptions, and a custom admin login system.
 
+Other features to be added:
+ - Song lyric viewing 
+ - announcements that will be sent to the subsribed emails and a announcements page 
+ - schedules 
+ - priests 
+ - donor aknowledgement page 
+ - church groups 
+ - admin management system for the features mentioned previously
+ 
 **Stack:**
 - Backend: Django 5.2
 - Frontend: HTML/CSS/JavaScript

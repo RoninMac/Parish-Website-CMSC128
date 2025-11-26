@@ -15,20 +15,11 @@ from django.shortcuts import render, redirect
 from .models import Subscription
 from django import forms
 
-
 class SubscriptionForm(forms.ModelForm):
-	"""
-	Form for email subscription.
-	Uses the Subscription model with only the email field.
-	Includes automatic validation:
-	  - EmailField validation
-	  - Unique email enforcement (no duplicates)
-	"""
 	class Meta:
 		model = Subscription
 		fields = ['email']
-
-
+		
 def subscribe(request):
 	"""
 	Handle email subscription page (GET and POST).
@@ -38,16 +29,8 @@ def subscribe(request):
 	  - If valid: Save subscription, show thank you page
 	  - If invalid: Show form with errors (e.g., duplicate email)
 	
-	Route: '/subscribe/'
-	Templates: subscribe.html (form), thankyouSub.html (confirmation)
-	
 	FORM DATA:
 	  - email: User's email address
-	
-	RESPONSE:
-	  - GET: Renders subscribe.html with empty SubscriptionForm
-	  - POST (valid): Redirects to thankyouSub.html after saving
-	  - POST (invalid): Re-renders subscribe.html with errors
 	
 	TODO: 
 	  - Add IntegrityError handling for duplicate emails (show friendly message)
