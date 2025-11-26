@@ -1,14 +1,32 @@
-{% extends 'base.html' %}
+{% extends 'subscriberBase.html' %}
 {% load static %}
+{% block title %}Admin Login - Virgen Dela Candelaria Parish{% endblock %}
 
-{% block title %}Subscribe - Virgen Dela Candelaria Parish{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/subBaseStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/subStyle.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
+<div class="subscribe-container">
   <h1>Subscribe</h1>
   <p>Enter your email to receive updates.</p>
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Subscribe</button>
+    <div class = "input-box">
+        <input type = "text" required = "required" placeholder="Email address">
+    </div>
+    <div class="input-box">
+        <input type = "password" required = "required" placeholder="Password">
+    </div>
+    <div class = "terms-and-conditions">
+      <label class = "terms-and-conditions-label">
+        <input type="checkbox" required="required" class = "terms-and-conditions-checkbox">
+          I agree to the <a href="">terms and conditions</a>
+        </label>
+    </div>
+    <button type="submit" class="subscribe-button" >Subscribe</button>
   </form>
+</div>
 {% endblock %}

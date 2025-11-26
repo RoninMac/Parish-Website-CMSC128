@@ -21,8 +21,7 @@ class Subscription(models.Model):
 	Fields:
 	  - email (EmailField, unique): Subscriber's email address
 	  - created_at (DateTimeField): Timestamp when subscribed (auto-filled)
-	
-	Admin: Registered in people/admin.py for easy management
+
 	
 	USAGE:
 	  Subscription.objects.create(email='example@parish.com')
