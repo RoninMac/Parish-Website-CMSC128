@@ -1,15 +1,42 @@
-{% extends 'base.html' %}
-{% block title %}Donate – Virgen Dela Candelaria Parish{% endblock %}
+{% extends 'subscriberBase.html' %}
+{% load static %}
+{% block title %}Admin Login - Virgen Dela Candelaria Parish{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/donationBaseStyle.css' %}">
+<link rel="stylesheet" href="{% static 'css/donationStyle.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-<section class="section">
+<div class ="donation-container">
   <h1>Make a Donation</h1>
   <p>Your generosity helps sustain our parish’s mission and ministries. Thank you!</p>
+  <form method = "post">
+    <div class="input-box">
+        <input type="text" id="donor-name" name="donor-name" placeholder="Full name">
+    </div>
 
-  <form method="post" class="donation-form">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit Donation</button>
+    <div class="input-box">
+        <input type="email" id="donor-email" name="donor-email" required placeholder="Email address">
+    </div>
+    <div class="input-box">
+        <input type="number" id="donation-amount" name="donation-amount" required placeholder="Amount in Php">
+    </div>
+    <div class = "terms-and-conditions">
+      <label class = "terms-and-conditions-label">
+        <input type="checkbox" required="required" class = "terms-and-conditions-checkbox">
+          I have read and agree to the <a href="">terms and conditions</a>
+      </label>
+    </div>
+    <label for="payment-method-select">Select Payment Method:</label>
+    <div class = "payment-method">
+      <img src="{% static 'images/x.jpg' %}" alt="GCash">
+      <img src="{% static 'images/x.jpg' %}" alt="PayMaya">
+      <img src="{% static 'images/x.jpg' %}" alt="Bank Transfer">
+    </div>
+    <button type="submit" class="donate-button">Donate Now</button>
   </form>
-</section>
+</div>
 {% endblock %}
