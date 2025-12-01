@@ -15,7 +15,7 @@ TEMPLATES USED: base.html, index.html, history.html, location.html
 """
 
 from django.shortcuts import render
-
+from django.shortcuts import redirect
 
 def index(request):
     """
@@ -63,3 +63,6 @@ def home(request):
     TODO: Consolidate to use one home view - recommend using this one
     """
     return render(request, 'home.html')
+
+def go_to_admin(request):
+    return redirect('/admin/')

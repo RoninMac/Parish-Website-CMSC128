@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs and Lyrics</title>
+    <link rel="stylesheet" href="{% static 'css/songsPageStyle.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-left">
+            <span>⛪</span> <h1>Songs and Lyrics</h1>
+        </div>
+        
+    </header>
+
+    {% for song in songs %}
+        <div class="song-row">
+            <a href = "{% url 'song_detail' song.id %}"><span class="title">Title: {{ song.title }}</span></a>
+            <span class="artist">Artist:{{ song.artist }}</span>
+            <div class="actions">
+                
+            </div>
+        </div>
+    {% empty %}
+        <p>No songs found.</p>
+    {% endfor %}
+</div>
+</body>
+</html>
