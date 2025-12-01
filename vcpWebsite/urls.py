@@ -21,6 +21,7 @@ from people import urls as people_urls
 from core import urls as core_urls
 from donations import urls as donation_urls
 from adminlogin import urls as admin_urls
+from songs import urls as songs_urls
 
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
     path('donate/', include(donation_urls)),
     path('', include(people_urls)),
     path('adminlogin/', include(admin_urls)),
+    path('songs/', include(songs_urls)),
 ]
