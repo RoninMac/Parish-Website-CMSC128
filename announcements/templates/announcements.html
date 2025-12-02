@@ -4,28 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songs and Lyrics</title>
-    <link rel="stylesheet" href="{% static 'css/songsPageStyle.css' %}">
+    <title>Announcement</title>
+    <link rel="stylesheet" href="{% static 'css/announcementPageStyle.css' %}">
 </head>
 <body>
 <div class="container">
     <header>
         <div class="header-left">
-            <span>⛪</span> <h1>Songs and Lyrics</h1>
+            <span>⛪</span> <h1>Announcements</h1>
         </div>
         
     </header>
 
-    {% for song in songs %}
-        <div class="song-row">
-            <a href = "{% url 'song_detail' song.id %}"><span class="title">Title: {{ song.title }}</span></a>
-            <span class="artist">Artist:{{ song.artist }}</span>
-            <div class="actions">
+    {% for announcement in announcements %}
+        <div class="announcement-row">
+
+            <a href = "{% url 'announcement_detail' announcement.id %}">
+
+            <span class="subject">Subject: {{ announcement.subject }}</span>
+            <span class="date">{{ announcement.date_posted }}</span></a>
+            
                 
-            </div>
         </div>
     {% empty %}
-        <p>No songs found.</p>
+        <p>No announcements found.</p>
     {% endfor %}
 </div>
 </body>

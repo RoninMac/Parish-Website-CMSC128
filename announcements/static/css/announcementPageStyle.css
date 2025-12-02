@@ -12,7 +12,7 @@ body{
     padding: 20px 0;
 }
 
-.song-row {
+.announcement-row {
     background-color: #f9b3c7;
     border: 1px solid #ddd;
     margin: 10px auto;
@@ -22,19 +22,20 @@ body{
     border-radius: 10px;
 }
 
-.song-row .title {
+.announcement-row .subject {
     font-size: 1.5em;
     color: #fff;
     font-weight: bold;
 }
 
-.song-row .artist {
-    font-size: 1.2em;
+.announcement-row .date {
+    font-size: 1.0em;
     color: grey;
-    padding-left: 20px;
+    padding-left: 40px;
+
 }
 
-.song-row a{
+.announcement-row a{
     text-decoration: none;
     color: inherit;
 }
