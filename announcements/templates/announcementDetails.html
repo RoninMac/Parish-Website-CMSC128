@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Lyrics</title>
-    <link rel="stylesheet" href="{% static 'css/songsPageStyle.css' %}">
+    <title>Announcement Details</title>
+    <link rel="stylesheet" href="{% static 'css/detailsPageStyle.css' %}">
 </head>
 <body>
     <div class="container">
-    <h1>{{ song.title }}</h1>
-    <h2>Artist: {{ song.artist }}</h2>
-    <pre>{{ song.lyrics }}</pre>
+    <h1>{{announcement.subject }}</h1>
+    <h2>Date Posted: {{ announcement.date_posted }}</h2>
+    <pre>{{ announcement.content }}</pre>
      </div>
 </body>
 </html> 

@@ -20,9 +20,7 @@
         <div class="song-row">
             <a href = "{% url 'song_detail' song.id %}"><span class="title">Title: {{ song.title }}</span></a>
             <span class="artist">Artist:{{ song.artist }}</span>
-            <div class="actions">
                 
-            </div>
         </div>
     {% empty %}
         <p>No songs found.</p>
