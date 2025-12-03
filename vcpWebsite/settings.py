@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'songs',          # Songs/hymns management (TODO: implement)
     'adminlogin',     # Custom admin login (separate from /admin/)
     'announcements',  # Announcements management
+    'groups',         # Groups management
 ]
 
 MIDDLEWARE = [
