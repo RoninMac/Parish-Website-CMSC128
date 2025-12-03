@@ -33,13 +33,12 @@ header{
     text-align: center;
 }
 
-.container .song-details{
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
+.song-details{
+    padding: 15px;
+    border-radius: 5px;
+    padding: 10px;
     background-color:#f9b3c7;
+    border-radius: 5px;
 }
 
 .container pre{

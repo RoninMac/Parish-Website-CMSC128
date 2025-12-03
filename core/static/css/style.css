@@ -92,6 +92,7 @@ body {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -102,6 +103,9 @@ body {
   border-radius: 15px;
   text-align: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card h3 {

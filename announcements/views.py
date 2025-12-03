@@ -10,4 +10,4 @@ class AnnouncementListView(ListView):
 
 def announcement_detail(request, id):
     announcement = get_object_or_404(Announcement, pk=id)
-    return render(request, 'announcementDetail.html', {'announcement': announcement})
+    return render(request, 'announcementDetailS.html', {'announcement': announcement})
