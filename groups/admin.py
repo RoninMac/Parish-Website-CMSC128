@@ -1,9 +1,11 @@
 from django.contrib import admin
-from . import models
+from .models import ChurchGroups
 
-# Register your models here.
+@admin.register(ChurchGroups)
+class ChurchGroupsAdmin(admin.ModelAdmin):
+    list_display = ("name", "posted_by", "created_at")
 
-@admin.register(models.Groups)
-class GroupsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'created_at')
-    search_fields = ('name', 'created_at')
+    def save_model(self, request, obj, form, change):
+        if not change:  # Only set on object creation
+            obj.posted_by = request.user
+        super().save_model(request, obj, form, change)

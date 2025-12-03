@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcement Details</title>
+    <title>Group Details</title>
     <link rel="stylesheet" href="{% static 'css/detailsPageStyle.css' %}">
 </head>
 <body>
     <div class="container">
     <div class = "announcement-details">
-    <h1>{{announcement.subject }}</h1>
-    <h2>Date Posted: {{ announcement.date_posted }}</h2>
+    <h1>{{group.name }}</h1>
+    <h2>Established at: {{ group.created_at}}</h2>
     </div>
-    <pre>{{ announcement.content }}</pre>
+    <pre>{{ group.description }}</pre>
      </div>
 </body>
 </html> 

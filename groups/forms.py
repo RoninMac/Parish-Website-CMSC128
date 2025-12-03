@@ -1,7 +1,7 @@
 from django import forms
-from .models import groups
+from .models import ChurchGroups
 
 class GroupsForm(forms.ModelForm):
     class Meta:
-        model = groups
-        fields = ['name', 'description', 'created_at']
+        model = ChurchGroups
+        fields = ['name', 'description', 'created_at', 'posted_by']

@@ -24,6 +24,7 @@ from adminlogin import urls as admin_urls
 from songs import urls as songs_urls
 from announcements import urls as announcement_urls
 from groups import urls as group_urls
+from priest import urls as priest_urls
 
 
 urlpatterns = [
@@ -35,4 +36,5 @@ urlpatterns = [
     path('songs/', include(songs_urls)),
     path('announcements/', include(announcement_urls)),
     path('groups/', include(group_urls)),
+    path('priests/', include(priest_urls)),
 ]
