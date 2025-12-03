@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'adminlogin',     # Custom admin login (separate from /admin/)
     'announcements',  # Announcements management
     'groups',         # Groups management
+    'priest',         # Priest management
 ]
 
 MIDDLEWARE = [

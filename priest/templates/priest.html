@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs and Lyrics</title>
+    <link rel="stylesheet" href="{% static 'css/songsPageStyle.css' %}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="header-left">
+            <span>⛪</span> <h1>Priests</h1>
+        </div>
+        
+    </header>
+
+    {% for priest in priests %}
+        <div class="song-row">
+            <a href = "{% url 'priest_detail' priest.id %}"><span class="name">Name: {{ priest.name }}</span></a>
+            <span class="birthdate">Birthdate:{{ priest.birthdate }}</span>
+                
+        </div>
+    {% empty %}
+        <p>No priests found.</p>
+    {% endfor %}
+</div>
+</body>
+</html>

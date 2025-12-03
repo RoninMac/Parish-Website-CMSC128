@@ -61,13 +61,10 @@ def donate(request):
     """
 
     if request.method == 'POST':
-        # Handle form submission from POST request
         form = DonationForm(request.POST)
         
         if form.is_valid():
-            # Form validation passed
-            # All required fields present and valid format (e.g., valid email)
-            # Save the donation record to database
+    
             form.save()
             
             # Redirect to thank you page
