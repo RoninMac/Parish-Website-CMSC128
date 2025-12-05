@@ -1,52 +1,39 @@
-"""
-========================================
-PEOPLE VIEWS - Subscription Management
-========================================
-Views for managing email subscriptions.
 
-ROUTE:
-  - 'subscribe/' -> subscribe() (GET/POST)
-
-TEMPLATES: subscribe.html, thankyouSub.html
-========================================
-"""
-
+from sqlite3 import IntegrityError
 from django.shortcuts import render, redirect
 from .models import Subscription
-from django import forms
-
-class SubscriptionForm(forms.ModelForm):
-	class Meta:
-		model = Subscription
-		fields = ['email']
+from .forms import SubscriptionForm
 		
 def subscribe(request):
-	"""
-	Handle email subscription page (GET and POST).
-	
-	GET: Display empty subscription form
-	POST: Process form submission
-	  - If valid: Save subscription, show thank you page
-	  - If invalid: Show form with errors (e.g., duplicate email)
-	
-	FORM DATA:
-	  - email: User's email address
-	
-	TODO: 
-	  - Add IntegrityError handling for duplicate emails (show friendly message)
-	  - Add email confirmation/double opt-in
-	  - Add success message using Django messages framework
-	"""
 	if request.method == 'POST':
-		form = SubscriptionForm(request.POST)
-		if form.is_valid():
-			# Save the subscription to database
-			form.save()
-			# Show thank you page after successful subscription
-			return render(request, 'thankyouSub.html')
-	else:
-		# GET request: show empty form
-		form = SubscriptionForm()
-	
-	# Render form page with context
-	return render(request, 'subscribe.html', {'form': form})
+
+		email = request.POST.get('email')
+		password = request.POST.get('password')
+
+
+		if email and password:
+			try:
+				Subscription.objects.create(
+					email=email,
+					password=password
+				)
+				return redirect('thank_you')
+			
+			except IntegrityError:
+            # Handle the case where the email already exists
+            # You would typically add a message to the user here
+				return render(request, 'subscribe_page.html', {
+					'error_message': 'This email address is already subscribed.'
+				})
+        
+			except Exception as e:
+				# Catch other unexpected database or system errors
+				print(f"An unexpected error occurred: {e}")
+				return render(request, 'subsscribe.html')
+			
+
+def thank_you(request):
+	return render(request, 'thankyouSub.html')
+
+def subscriptionPage(request):
+	return render(request, 'subscribe.html')
