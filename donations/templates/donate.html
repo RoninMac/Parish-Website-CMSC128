@@ -3,10 +3,9 @@
 {% block title %}Admin Login - Virgen Dela Candelaria Parish{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/donationBaseStyle.css' %}">
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'css/donationStyle.css' %}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel= "stylesheet" href = "{%static 'css/newItems.css' %}"
 {% endblock %}
 
 {% block content %}
@@ -18,19 +17,21 @@
   <form method = "post" action = "{% url 'donate' %}">
      {% csrf_token %} 
     <div class = "left">
-    <div class="input-box">
-        <input type="text" id="donor-name" name="donor-name" placeholder="Full Name">
-    </div>
+      <div class="input-box">
+          <input type="text" id="donor-name" name="donor-name" placeholder="Full Name">
+      </div>
 
-    <div class="input-box">
-        <input type="email" id="donor-email" name="donor-email" required placeholder="Email Address">
-    </div>
-    <div class="input-box">
-        <input type="number" id="donation-amount" name="donation-amount" required placeholder="Amount in Php">
-    </div>
-    <div class="input-box">
-        <textarea id="donor-message" name="donor-message" placeholder="Leave a message (optional)"></textarea>
-    </div>
+      <div class="input-box">
+          <input type="email" id="donor-email" name="donor-email" required placeholder="Email Address">
+      </div>
+
+      <div class="input-box">
+          <input type="number" id="donation-amount" name="donation-amount" required placeholder="Amount in Php">
+      </div>
+
+      <div class="input-box">
+          <textarea id="donor-message" name="donor-message" placeholder="Leave a message (optional)"></textarea>
+      </div>
     </div>
 
     <div class = "right">
@@ -43,7 +44,7 @@
       <div class = "terms-and-conditions">
         <label class = "terms-and-conditions-label">
           <input type="checkbox" required="required" class = "terms-and-conditions-checkbox">
-            I have read and agree to the <a href="">terms and conditions</a>
+            I have read and agree to the <a href="{% url 'terms_and_conditions' %}">terms and conditions</a>
         </label>
       </div>
     </div>

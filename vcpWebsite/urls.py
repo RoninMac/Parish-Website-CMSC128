@@ -25,7 +25,8 @@ from songs import urls as songs_urls
 from announcements import urls as announcement_urls
 from groups import urls as group_urls
 from priest import urls as priest_urls
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,3 +39,6 @@ urlpatterns = [
     path('groups/', include(group_urls)),
     path('priests/', include(priest_urls)),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

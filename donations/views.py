@@ -52,3 +52,6 @@ class DonationListView(ListView):
     model = DonationInfo
     template_name = 'donationAknowledgementPage.html'  # Template for the main list
     context_object_name = 'donations'
+
+def terms_and_conditions(request):
+    return render(request, 'TandC.html')
