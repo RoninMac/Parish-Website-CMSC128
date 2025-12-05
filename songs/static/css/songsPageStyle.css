@@ -16,22 +16,32 @@ body{
     background-color: #f9b3c7;
     border: 1px solid #ddd;
     margin: 10px auto;
-    padding: 15px;
     width: 80%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
+.song-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 10px; 
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.song-row .title {
+    font-weight: bold;
+}
 .song-row .title {
     font-size: 1.5em;
     color: #fff;
     font-weight: bold;
 }
 
-.song-row .artist {
-    font-size: 1.2em;
+.song-row .artist{
+    font-size: 1.0em;
     color: grey;
-    padding-left: 20px;
+
 }
 
 .song-row a{

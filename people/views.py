@@ -37,3 +37,6 @@ def thank_you(request):
 
 def subscriptionPage(request):
 	return render(request, 'subscribe.html')
+
+def terms_and_conditions(request):
+	return render(request, 'TandC.html')
