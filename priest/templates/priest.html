@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Songs and Lyrics</title>
-    <link rel="stylesheet" href="{% static 'css/songsPageStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/priestStyle.css' %}">
 </head>
 <body>
 <div class="container">
@@ -17,7 +17,7 @@
     </header>
 
     {% for priest in priests %}
-        <div class="song-row">
+        <div class="priest-row">
             <a href = "{% url 'priest_detail' priest.id %}"><span class="name">Name: {{ priest.name }}</span></a>
             <span class="birthdate">Birthdate:{{ priest.birthdate }}</span>
                 

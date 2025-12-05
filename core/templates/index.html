@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home – Virgen Dela Candelaria Parish{% endblock %}
-
+{%block head %}
+  {{ block.super }}
+  <link rel ="stylesheet" href="{% static 'css/cardsStyle.css' %}">
+  
+{% endblock %}
 {% block content %}
 <section class="hero">
   <h1>Everyone is Welcome Here.</h1>
@@ -15,7 +20,7 @@
     <a href = "/songs/"><div class="card"><h3>Sing our Songs</h3><p>Lorem ipsum dolor sit amet…</p></div></a>
     <a href = "/priests/"><div class="card"><h3>Know our Priests</h3><p>Lorem ipsum dolor sit amet…</p></div></a>
     <a href = "/groups/"> <div class="card"><h3>Meet our Affiliates</h3><p>Lorem ipsum dolor sit amet…</p></div></a>
-    <a href = "/donations/"><div class="card"><h3>Special Thanks</h3><p>Lorem ipsum dolor sit amet…</p></div></a>
+    <a href = "/acknowledgements/"><div class="card"><h3>Special Thanks</h3><p>Lorem ipsum dolor sit amet…</p></div></a>
   </div>
 </section>
 {% endblock %}

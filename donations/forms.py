@@ -19,9 +19,9 @@ FUTURE ENHANCEMENTS:
 ========================================
 """
 from django import forms
-from .models import Donation
+from .models import DonationInfo
 
 class DonationForm(forms.ModelForm):
     class Meta:
-        model = Donation
-        fields = ['name', 'email', 'amount', 'message', 'date']
+        model = DonationInfo
+        fields = ['name', 'email', 'amount', 'message']

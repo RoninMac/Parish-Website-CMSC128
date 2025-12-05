@@ -97,6 +97,10 @@ body {
   margin-top: 2rem;
 }
 
+.cards a{
+  text-decoration: none;
+}
+
 .card {
   background: #f9b3c7;
   padding: 1.5rem;
@@ -111,6 +115,8 @@ body {
 .card h3 {
   margin: 0.5rem 0;
 }
+
+
 
 /* FOOTER */
 /* Fixed footer with contact info, social links, and admin button */
@@ -154,3 +160,4 @@ body {
   text-decoration: none;
   color: white;
 }
+

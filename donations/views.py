@@ -1,82 +1,54 @@
-"""
-========================================
-DONATIONS VIEWS - Handling Monetary Contributions
-========================================
-Processes donation submissions from the public.
-
-FEATURES:
-  - Handles donation form submission (POST)
-  - Validates donor information via DonationForm (ModelForm)
-  - Saves valid donations to Donation model
-  - Displays thank you page after successful submission
-  - Allows optional donor message/prayer request
-
-DATABASE INTERACTION:
-  - Donation model: Stores name, email, amount, message, date
-  - Model defined in donations/models.py
-
-IMPROVEMENTS NEEDED:
-  - Add email notification/receipt to donor
-  - Add donor receipt generation/download
-  - Implement payment gateway for online transactions
-  - Add form field validation (e.g., minimum donation amount)
-  - Add success message to context (currently just redirect)
-  - Add logging for donation tracking and debugging
-  - Add error handling for form.save() failures
-  - Add donation receipts/certificates
-
-FUTURE ENHANCEMENTS:
-  - Payment processing (Stripe, PayMongo)
-  - Email receipts and thank you letters
-  - Anonymous donation option
-  - Recurring donations
-  - Donor management/relationship tracking
-========================================
-"""
-
+# In your views.py file
 from django.shortcuts import render, redirect
+from .models import DonationInfo # Assuming you have a Donation model
+from django.views.generic import ListView
+from django.shortcuts import render, get_object_or_404
+
 from .forms import DonationForm
-
-
-def donate(request):
-    """
-    Handle donation form submission and display.
-    
-    
-    GET REQUEST:
-      - Display empty donation form
-      - User can enter: name, email, amount, optional message
-      
-    POST REQUEST:
-      - Validate submitted form data
-      - If valid: Save donation to database, show thank you page
-      - If invalid: Re-display form with error messages for user correction
-    
-    
-    FORM FIELDS (from DonationForm):
-      - name (CharField, max_length=100): Donor's full name (required)
-      - email (EmailField): Donor's email (required, must be valid)
-      - amount (DecimalField): Donation amount in Philippine Pesos ₱ (required, max 999,999.99)
-      - message (TextField): Optional prayer request or message (optional, blank=True)
-    """
-
+def donate_view(request):
     if request.method == 'POST':
-        form = DonationForm(request.POST)
+        # --- 1. MANUALLY RETRIEVE ALL FIELDS ---
+        name = request.POST.get('donor-name')
+        email = request.POST.get('donor-email')
+        amount = request.POST.get('donation-amount')
+        message = request.POST.get('donor-message', '')  # Optional field
         
-        if form.is_valid():
-    
-            form.save()
+        is_anonymous = request.POST.get('anonymous-checkbox')
+        
+        if is_anonymous == 'on':
+            # If the checkbox was checked, override the name field.
+            name = "Anonymous"
+        # --- 2. PERFORM MANUAL VALIDATION (REQUIRED since you skip Django Forms) ---
+        if name and email and amount:
+            try:
+                # Convert amount to a number/decimal before saving
+                amount = float(amount) 
+                
+                # --- 3. SAVE to the database ---
+                DonationInfo.objects.create(
+                    name=name,
+                    email=email,
+                    amount=amount,
+                    message=message
+                )
+                
+                # --- 4. REDIRECT ---
+                return redirect('thank_you') 
+
+            except ValueError:
+                # Handle non-numeric amount error here
+                pass 
             
-            # Redirect to thank you page
-            # TODO: Consider passing donation_id or message context
-            return render(request, 'thankyou.html')
-        # If form invalid, fall through to re-render donate.html with error messages
-    
-    else:
-        # GET request: Display empty form
-        form = DonationForm()
-    
-    # Render donation form template with form instance
-    # Form displays fields: name, email, amount, message
-    # If POST with errors, form displays error messages for invalid fields
+        # If any validation fails, re-render the template with an error message
+       
+    else: 
+        form = DonationForm()    
     return render(request, 'donate.html', {'form': form})
+
+def thank_you(request):
+    return render(request, 'thankyou.html')
+
+class DonationListView(ListView):
+    model = DonationInfo
+    template_name = 'donationAknowledgementPage.html'  # Template for the main list
+    context_object_name = 'donations'

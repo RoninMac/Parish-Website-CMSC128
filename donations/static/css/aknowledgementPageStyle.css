@@ -12,32 +12,27 @@ body{
     padding: 20px 0;
 }
 
-.announcement-row {
+.donation-row {
     background-color: #f9b3c7;
     border: 1px solid #ddd;
     margin: 10px auto;
-    padding: 15px;
     width: 80%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    gap: 10px; 
+    padding: 10px;
     display: grid;
     grid-template-columns: 1fr 2fr; 
 }
 
-.announcement-row .subject {
+.donation-row .name {
     font-size: 1.5em;
     color: #fff;
     font-weight: bold;
 }
 
-.announcement-row .date {
+.donation-row .amount {
     font-size: 1.0em;
     color: grey;
-    padding-left: 40px;
 
-}
-
-.announcement-row a{
-    text-decoration: none;
-    color: inherit;
 }
