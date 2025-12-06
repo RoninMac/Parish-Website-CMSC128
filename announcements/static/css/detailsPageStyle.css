@@ -39,6 +39,7 @@ header{
     padding: 15px;
     border-radius: 5px;
     overflow-x: auto;
+    text-align: left;
 }
 
 .announcement-details{
@@ -46,5 +47,10 @@ header{
     padding: 15px;
     border-radius: 5px;
     overflow-x: auto;
+    text-align: left;
+}
+
+.announcement-details h1, .announcement-details h2 {
+    text-align: left;
 }
 

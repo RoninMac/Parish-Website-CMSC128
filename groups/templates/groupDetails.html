@@ -14,6 +14,11 @@
     <h2>Established at: {{ group.created_at}}</h2>
     </div>
     <pre>{{ group.description }}</pre>
+    {% if group.photo %}
+    <img src="{{ group.photo.url }}" alt="{{ group.name }}" style="max-width:500px; max-height:500px;">
+    {% else %}
+    <img src="{% static 'images/VDCPdefaultProfile.jpg' %}" alt="{{ group.name }}" style="max-width:400px; max-height:400px;">
+    {% endif %}
      </div>
 </body>
 </html> 

@@ -12,6 +12,7 @@
     <header>
         <div class="header-left">
             <span></span> <h1>Groups</h1>
+            <button name = "backButton" onclick="window.location.href='/'">back</button>
         </div>
         
     </header>
@@ -19,15 +20,19 @@
     {% for group in groups %}
      
         <div class="group-row">
+            {%if group.photo %}
+                <img src="{{ group.photo.url }}" alt="{{ group.name }}" class="group-photo" style="max-width:100px; max-height:100px;">
+            {% else %}
+                <img src="{% static 'images/VDCPdefaultProfile.jpg' %}" alt="{{ group.name }}" class="group-photo" style="max-width:100px; max-height:100px;">
+            {% endif %}
             <a href = "{% url 'group_detail' group.id %}" class="group-link">
-            <span class="name">Name: {{ group.name }}</span>
-            <span class="date">Founded:{{ group.created_at }}</span>
+                <span class="name">Name: {{ group.name }}</span>
             </a>
-        </div>
-        
+        </div>    
     {% empty %} 
         <p>No groups found.</p>
     {% endfor %}
+    
 </div>
 </body>
 </html>

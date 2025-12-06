@@ -6,10 +6,32 @@ body{
     padding: 0;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
 .header-left h1 {
     color: #2c3e50;
-    text-align: center;
-    padding: 20px 0;
+    padding: 0, 0;
+}
+
+.header-left {
+    justify-items:left;
+   
+}
+.header-left button {
+    width: 80px;
+    height: 40px;
+    font-size: 1em;
+    cursor: pointer;
+    background: #4ea3ff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 18px;
 }
 
 .priest-row {
@@ -17,11 +39,12 @@ body{
     border: 1px solid #ddd;
     margin: 10px auto;
     padding: 15px;
-    width: 80%;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr 2fr; 
+    grid-template-columns: .2fr 1.8fr;
+    justify-items: start;
 }
 
 .priest-row .name {
