@@ -33,8 +33,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8x#!=!^zofuy)!bza101i$-6eo7)@#65+=)s-n!1b8@x(-h9nd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # MUST be False in production
+DEBUG = False # MUST be False in production
+ALLOWED_HOSTS = ['*']
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+if os.environ.get('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600
+        )
+    }
 # ============================================================================
 # INSTALLED APPS - CUSTOM & DJANGO APPS
 # ============================================================================
