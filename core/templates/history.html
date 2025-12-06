@@ -1,24 +1,109 @@
-{% extends 'base.html' %}
-{% block title %}Home – Virgen Dela Candelaria Parish{% endblock %}
-{% block content %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Page title - overridden in child templates -->
+  <title>{% block title %}Virgen Dela Candelaria Parish{% endblock %}</title>
+  
+  <!-- Optional block for additional stylesheets in child templates -->
+  {%block head %}
+   <!-- Main stylesheet with navbar, footer, and common styles -->
+   <link rel="stylesheet" href="{% static 'css/historyStyle.css' %}">
+   <!-- Google Font: Inter (weights: 400, 600, 800) -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  {% endblock %}
+</head>
+<body>
+  
+  <header class="navbar">
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logoPNG.png' %}" class="parish-logo">
+            Virgen Dela Candelaria Parish
+        </a>
+    </div>
+
+    <nav class="nav-links">
+      <a href="/history/">History</a>
+      <a href="/location/">Location</a>
+      <a href="/donate/">Donate</a>
+      <a href="/subscribe/" class="subscribe">📧 Subscribe</a>
+    </nav>
+</header>
+
+
 <section class="hero">
-  <h1>Our Parish History</h1>
-  <p>Discover the rich history and heritage of the Virgen Dela Candelaria Parish.</p>
+  <h1>Who we are and <br>how we came to be.</h1>
+  <p>Discover the rich history and heritage of the Virgen Dela Candelaria Parish in Bagacay, Tacloban City.</p>
 </section>
+
 <section class="history-section">
   <h1>Our Parish History</h1>
-  <p>The Virgen Dela Candelaria Parish was established in the early 1900s, rooted in a deep devotion to the Blessed Virgin Mary. Over the decades, our parish has grown into a vibrant community of faith, serving as a spiritual home for countless families.</p>
-  
-  <h2>Milestones</h2>
+
+  <p>
+    The history of the Virgen de la Candelaria Parish can be traced back to 1958, when Tranquilino Eusebio and Clara Mendiolia donated a 
+    275-square-meter lot in Bagacay for the construction of a community chapel. The first chapel was built by Pedro C. Buclatan and later 
+    maintained by Alberto Compas. This early chapel was originally dedicated to Saint Roch of Montpellier (San Roque), reflecting the strong 
+    devotion of the barangay to its long-time patron.
+  </p>
+
+  <p>
+    For several decades, the chapel served as the center of faith for families in Bagacay and nearby sitios. As the Catholic population 
+    grew, pastoral needs expanded beyond what the simple wooden chapel could support.
+  </p>
+
+  <p>
+    On December 7, 2005, the chapel was officially elevated to a mission station under the Archdiocese of Palo and given the title 
+    Virgen de la Candelaria Mission Station. This marked the beginning of regular pastoral assignments, formal record-keeping, and a 
+    more organized sacramental ministry. Our Lady of the Candles became the mission’s primary patroness, while Saint Roch remained the 
+    secondary patron of the barangay.
+  </p>
+
+  <p>
+    The mission station faced a major challenge when Super Typhoon Yolanda (Haiyan) struck on November 8, 2013, causing severe damage to 
+    the chapel and surrounding areas. Community members, with the support of the Archdiocese, began efforts to rebuild and expand the 
+    church to better serve the growing population of Bagacay.
+  </p>
+
+  <p>
+    After years of ongoing development, the mission achieved a significant milestone on June 28, 2022, when it was officially erected as 
+    a full-fledged parish: the Virgen de la Candelaria Parish of Bagacay, Tacloban City. Today, the parish oversees multiple chapels 
+    across several barangays, serving as a spiritual home and center of pastoral activity for thousands of parishioners.
+  </p>
+
+  <h2>Important Dates and Milestones</h2>
   <ul>
-    <li><strong>1905:</strong> Founding of the parish by Spanish missionaries.</li>
-    <li><strong>1920:</strong> Construction of the original church building.</li>
-    <li><strong>1950:</strong> Expansion of the parish to include a school and community center.</li>
-    <li><strong>2000:</strong> Major renovation of the church to accommodate a growing congregation.</li>
-    <li><strong>2020:</strong> Launch of our online ministry to reach parishioners during the pandemic.</li>
+    <li><strong>1958:</strong> Donation of the original church lot and construction of the first chapel dedicated to Saint Roch.</li>
+    <li><strong>1980s–1990s:</strong> Gradual expansion and repair efforts due to population growth.</li>
+    <li><strong>December 7, 2005:</strong> Establishment as the Virgen de la Candelaria Mission Station.</li>
+    <li><strong>2006–2012:</strong> Strengthening of catechetical programs and formation of parish organizations.</li>
+    <li><strong>November 8, 2013:</strong> Severe damage during Super Typhoon Yolanda, prompting reconstruction.</li>
+    <li><strong>2014–2021:</strong> Rebuilding of the church structure and expansion of parish facilities.</li>
+    <li><strong>June 28, 2022:</strong> Canonical erection of the Virgen de la Candelaria Parish.</li>
+    <li><strong>February 2 (Annual):</strong> Feast Day of Our Lady of the Candles.</li>
+    <li><strong>August 23 (Annual):</strong> Barangay feast honoring Saint Roch of Montpellier.</li>
   </ul>
 
   <h2>Our Mission</h2>
-  <p>Throughout our history, our mission has remained steadfast: to foster a welcoming environment where all can grow in faith, serve others, and celebrate the sacraments. We are committed to continuing this legacy for future generations.</p>
+  <p>
+    Guided by Our Lady of the Candles and Saint Roch, the parish is committed to fostering a vibrant, welcoming, and faith-filled community.
+    Through evangelization, service, education, and the celebration of the sacraments, the parish continues to uphold its mission of 
+    spiritual growth and community-building for generations to come.
+  </p>
 </section>
-{% endblock %} 
+<footer class="footer">
+    <p>Contact Us</p>
+    <div class="social">
+      <!-- Social media icons - images stored in core/static/icons/ -->
+      <a href="#"><img src="{% static 'icons/facebook.svg' %}" alt="Facebook"></a>
+      <a href="#"><img src="{% static 'icons/instagram.svg' %}" alt="Instagram"></a>
+      <a href="#"><img src="{% static 'icons/x.svg' %}" alt="X"></a>
+    </div>
+    <!-- Admin login button - routes to adminlogin:admin_login URL -->
+    <a href="{% url 'go_to_admin' %}" class="admin-btn">Admin</a>
+  </footer>
+</body>
+</html>
+

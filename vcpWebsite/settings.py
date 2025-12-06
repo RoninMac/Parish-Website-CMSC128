@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'donations',      # Donation pages and management
     'people',         # Email subscriptions management
     'songs',          # Songs/hymns management (TODO: implement)
-    'adminlogin',     # Custom admin login (separate from /admin/)
     'announcements',  # Announcements management
     'groups',         # Groups management
     'priest',         # Priest management

@@ -6,17 +6,40 @@ body{
     padding: 0;
 }
 
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
 .header-left h1 {
     color: #2c3e50;
-    text-align: center;
-    padding: 20px 0;
+    padding: 0, 0;
+}
+
+.header-left {
+    justify-items:left;
+   
+}
+
+.header-left button {
+    width: 80px;
+    height: 40px;
+    font-size: 1em;
+    cursor: pointer;
+    background: #4ea3ff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 18px;
 }
 
 .song-row {
     background-color: #f9b3c7;
     border: 1px solid #ddd;
     margin: 10px auto;
-    width: 80%;
+    width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }

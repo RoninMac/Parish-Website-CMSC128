@@ -95,8 +95,13 @@ body {
   align-items: stretch;
   gap: 1.5rem;
   margin-top: 2rem;
+  
 }
 
+.card{
+  height: 60;
+  width: 100;
+}
 .cards a{
   text-decoration: none;
 }
@@ -150,14 +155,27 @@ body {
   padding: 2.5rem;
 }
 
-.navbar .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
-.logo a {
-  text-decoration: none;
-  color: white;
+
+/* In your CSS block */
+/* Find and replace or modify this section: */
+.logo img {
+    height: 50px; /* Set a specific height with a unit */
+    width: auto;
+    margin-right: 5px; /* Changed from margin-left for spacing before the text */
+}
+
+/* Ensure the logo text container is also styled */
+.navbar .logo {
+    display: flex;
+    align-items: center; 
+    gap: 10px
 }
 

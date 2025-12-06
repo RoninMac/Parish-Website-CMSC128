@@ -5,7 +5,7 @@ from . import models
 
 @admin.register(models.Announcement)
 class AnnouncementAdmin(admin.ModelAdmin):
-    list_display = ( 'subject', 'content','date_posted', 'photo')
+    list_display = ( 'subject', 'content','date_posted', 'photo', 'posted_by')
     search_fields = ('subject', 'date_posted')
 
     def save_model(self, request, obj, form, change):
