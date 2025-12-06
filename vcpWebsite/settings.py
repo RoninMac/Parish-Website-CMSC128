@@ -33,8 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8x#!=!^zofuy)!bza101i$-6eo7)@#65+=)s-n!1b8@x(-h9nd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # MUST be False in production
-ALLOWED_HOSTS = ['vcpWebsite.herokuapp.com', 'yourdomain.com', '.yourdomain.com']
+DEBUG = True # MUST be False in production
 
 # ============================================================================
 # INSTALLED APPS - CUSTOM & DJANGO APPS
@@ -73,11 +72,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vcpWebsite.urls'
 
-# Static Files configuration
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
+# Static Files configuratio
 
 # 3. SECRET KEY (Crucial)
 # NEVER hardcode your SECRET_KEY in the file. Read it from environment variables.
@@ -107,12 +102,19 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Default connection (e.g., for local development if DATABASE_URL isn't set)
-        default='postgres://myprojectuser:Kezkupom123@@@@localhost:5432/myprojectdb',
-        conn_max_age=600, # Keep connections open for better performance
-        ssl_require=True, # Recommended for remote production databases
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',         # Check this is correct
+        'USER': 'postgres',         # Check this is correct
+        'PASSWORD': 'Kezkupom123@@@', # Check this is correct
+        'HOST': 'localhost',
+        'PORT': '5432',
+        
+        # <<< ADD THIS SECTION TO FIX THE SSL ERROR >>>
+        'OPTIONS': {
+            'sslmode': 'disable',
+        },
+    }
 }
 
 
