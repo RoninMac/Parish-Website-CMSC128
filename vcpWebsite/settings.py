@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see:
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -33,11 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8x#!=!^zofuy)!bza101i$-6eo7)@#65+=)s-n!1b8@x(-h9nd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# Add your domain/IP here in production
-ALLOWED_HOSTS = []
-
+DEBUG = True # MUST be False in production
 
 # ============================================================================
 # INSTALLED APPS - CUSTOM & DJANGO APPS
@@ -71,9 +67,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'vcpWebsite.urls'
+
+# Static Files configuratio
+
+# 3. SECRET KEY (Crucial)
+# NEVER hardcode your SECRET_KEY in the file. Read it from environment variables.
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-key-for-local-dev-only')
 
 TEMPLATES = [
     {
@@ -100,8 +103,17 @@ MEDIA_URL = '/media/'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',         # Check this is correct
+        'USER': 'postgres',         # Check this is correct
+        'PASSWORD': 'Kezkupom123@@@', # Check this is correct
+        'HOST': 'localhost',
+        'PORT': '5432',
+        
+        # <<< ADD THIS SECTION TO FIX THE SSL ERROR >>>
+        'OPTIONS': {
+            'sslmode': 'disable',
+        },
     }
 }
 

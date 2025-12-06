@@ -1,0 +1,181 @@
+/* 
+  ========================================
+  CORE STYLES - Virgen Dela Candelaria Parish Website
+  ========================================
+  Main stylesheet for the public-facing website.
+  Covers: navbar, hero sections, cards, footer, and general layout.
+  
+  COLOR SCHEME:
+  - Primary Blue: #4ea3ff (navbar, buttons)
+  - Accent Pink: #f9b3c7 (cards, highlights)
+  - Dark Gray: #333 (text)
+  - Light Gray: #f4f4f4 (backgrounds)
+  
+  ======================================== 
+*/
+
+/* Global Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER / NAVBAR */
+/* Fixed navigation bar at the top of all pages */
+/* Contains: logo, nav links (History, Location, Donate, Subscribe) */
+.navbar {
+  background: #4ea3ff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.navbar .nav-links a {
+  color: white;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .subscribe {
+  border: 1px solid white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* Logo styling - links to home page */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+/* HERO SECTION */
+/* Large banner at top of pages with background image and dark overlay */
+/* Used on: home, history, and other main pages */
+.hero {
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  padding: 0 4rem;
+  background-color: rgba(0,0,0,0.5);
+  background-blend-mode: darken;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* LEARN MORE / CARDS SECTION */
+/* Grid layout for feature cards (donations, subscriptions, etc.) */
+.section {
+  padding: 4rem 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  
+}
+
+.card{
+  height: 60;
+  width: 100;
+}
+.cards a{
+  text-decoration: none;
+}
+
+.card {
+  background: #f9b3c7;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+}
+
+
+
+/* FOOTER */
+/* Fixed footer with contact info, social links, and admin button */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+}
+
+.footer .social img {
+  width: 24px;
+  margin: 0 5px;
+}
+
+.admin-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f9b3c7;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+/* HISTORY SECTION */
+/* Used on history.html page */
+/* Contains: timeline, milestones, and mission statement */
+.history-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* In your CSS block */
+/* Find and replace or modify this section: */
+.logo img {
+    height: 50px; /* Set a specific height with a unit */
+    width: auto;
+    margin-right: 5px; /* Changed from margin-left for spacing before the text */
+}
+
+/* Ensure the logo text container is also styled */
+.navbar .logo {
+    display: flex;
+    align-items: center; 
+    gap: 10px
+}
+
