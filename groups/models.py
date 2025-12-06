@@ -6,6 +6,7 @@ class ChurchGroups(models.Model):
     description = models.TextField()
     created_at = models.DateField()
     posted_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, editable=False)
+    photo = models.ImageField(upload_to='groups/', null=True, blank=True)
 
     def __str__(self):
         return self.name

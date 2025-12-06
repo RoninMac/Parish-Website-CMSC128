@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Lyrics</title>
-    <link rel="stylesheet" href="{% static 'css/lyricPageStyle.css' %}">
+    <title>Priest Details</title>
+    <link rel="stylesheet" href="{% static 'css/priestDetailsStyle.css' %}">
 </head>
 <body>
     <div class="container">
         <div class = "priest-details">
-        <img src="{{ priest.photo.url }}" alt="{{ priest.name }}" style="max-width:200px; max-height:200px;">
+        {% if priest.photo %}
+        <img src="{{ priest.photo.url }}" alt="{{ priest.name }}" style="max-width:500px; max-height:500px;">
+        {%else%}
+        <img src="{% static 'images/VDCPdefaultProfile.jpg' %}" alt="Default Priest" style="max-width:500px; max-height:500px;">
+        {% endif %}
         <h1>{{ priest.name }}</h1>
         <h2>Birthdate: {{ priest.birthdate }}</h2>
         </div>

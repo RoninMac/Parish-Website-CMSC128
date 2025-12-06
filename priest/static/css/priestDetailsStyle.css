@@ -33,7 +33,7 @@ header{
     text-align: center;
 }
 
-.song-details{
+.priest-details{
     padding: 15px;
     border-radius: 5px;
     padding: 10px;
@@ -47,5 +47,6 @@ header{
     padding: 15px;
     border-radius: 5px;
     overflow-x: auto;
+    text-align: left;
 }
 
