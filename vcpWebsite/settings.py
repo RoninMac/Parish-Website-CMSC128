@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see:
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import dj_database_url
 import os
 from pathlib import Path
 
@@ -33,11 +33,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8x#!=!^zofuy)!bza101i$-6eo7)@#65+=)s-n!1b8@x(-h9nd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# Add your domain/IP here in production
-ALLOWED_HOSTS = []
-
+DEBUG = False # MUST be False in production
+ALLOWED_HOSTS = ['vcpWebsite.herokuapp.com', 'yourdomain.com', '.yourdomain.com']
 
 # ============================================================================
 # INSTALLED APPS - CUSTOM & DJANGO APPS
@@ -71,9 +68,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'vcpWebsite.urls'
+
+# Static Files configuration
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
+
+# 3. SECRET KEY (Crucial)
+# NEVER hardcode your SECRET_KEY in the file. Read it from environment variables.
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-key-for-local-dev-only')
 
 TEMPLATES = [
     {
@@ -99,10 +107,12 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Default connection (e.g., for local development if DATABASE_URL isn't set)
+        default='postgres://myprojectuser:Kezkupom123@@@@localhost:5432/myprojectdb',
+        conn_max_age=600, # Keep connections open for better performance
+        ssl_require=True, # Recommended for remote production databases
+    )
 }
 
 

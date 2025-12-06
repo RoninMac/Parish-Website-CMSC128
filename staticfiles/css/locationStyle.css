@@ -1,0 +1,114 @@
+.location-section{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    
+}
+
+.hero {
+  background: url('../images/location-photo.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  padding: 0 4rem;
+  background-color: rgba(0,0,0,0.5);
+  background-blend-mode: darken;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* HEADER / NAVBAR */
+/* Fixed navigation bar at the top of all pages */
+/* Contains: logo, nav links (History, Location, Donate, Subscribe) */
+.navbar {
+  background: #4ea3ff;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.navbar .nav-links a {
+  color: white;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .subscribe {
+  border: 1px solid white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* Logo styling - links to home page */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+}
+
+.footer .social img {
+  width: 24px;
+  margin: 0 5px;
+}
+
+.admin-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #f9b3c7;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.parish-logo{
+    height: 50px;
+    width: auto;
+    margin-right: 5px;
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* vertically align image + text */
+    gap: 10px; /* space between logo and text */
+}

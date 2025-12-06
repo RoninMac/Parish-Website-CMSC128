@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header{
+    background-color: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    padding: 50px;
+}
+
+.container h1{
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #333333;
+}
+
+.container h2{
+    color: #35424a;
+    margin-top: 20px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.container pre{
+    font-size: 1.1em;
+    background: #e2e2e2;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    text-align: left;
+}
+
+.announcement-details{
+    background: #f9b3c7;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    text-align: left;
+}
+
+.announcement-details h1, .announcement-details h2 {
+    text-align: left;
+}
+
