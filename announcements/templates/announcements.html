@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Announcement</title>
-    <link rel="stylesheet" href="{% static 'css/announcementPageStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ANStyle.css' %}">
 </head>
 <body>
 <div class="container">
@@ -21,11 +21,9 @@
         <div class="announcement-row">
 
             <a href = "{% url 'announcement_detail' announcement.id %}">
-
-            <span class="subject">Subject: {{ announcement.subject }}</span>
+            <span class="subject">Subject: {{ announcement.subject }}</span></a>
             <span class="date">{{ announcement.date_posted }}</span>
-        
-            </a>
+            
             
                 
         </div>

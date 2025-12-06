@@ -22,15 +22,17 @@ def subscribe(request):
 			except IntegrityError:
             # Handle the case where the email already exists
             # You would typically add a message to the user here
-				return render(request, 'subscribe_page.html', {
+				return render(request, 'subscribe.html', {
 					'error_message': 'This email address is already subscribed.'
 				})
         
 			except Exception as e:
 				# Catch other unexpected database or system errors
 				print(f"An unexpected error occurred: {e}")
-				return render(request, 'subsscribe.html')
-			
+				return render(request, 'subscribe.html')
+		else: 
+			form = SubscriptionForm()    
+			return render(request, 'subscribe.html', {'form': form})	
 
 def thank_you(request):
 	return render(request, 'thankyouSub.html')

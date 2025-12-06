@@ -21,10 +21,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Page title - overridden in child templates -->
   <title>{% block title %}Virgen Dela Candelaria Parish{% endblock %}</title>
-  
-  <!-- Optional block for additional stylesheets in child templates -->
+
   {%block head %}
    <!-- Main stylesheet with navbar, footer, and common styles -->
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -41,14 +39,21 @@
     - Subscribe button has special styling (border + rounded)
   -->
   <header class="navbar">
-    <div class="logo"><a href="{% url 'home' %}">🏛Virgen Dela Candelaria Parish</a></div>
+    <div class="logo">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'icons/logoPNG.png' %}" class="parish-logo">
+            Virgen Dela Candelaria Parish
+        </a>
+    </div>
+
     <nav class="nav-links">
       <a href="/history/">History</a>
       <a href="/location/">Location</a>
       <a href="/donate/">Donate</a>
       <a href="/subscribe/" class="subscribe">📧 Subscribe</a>
     </nav>
-  </header>
+</header>
+
 
   <!-- 
     MAIN CONTENT AREA
@@ -71,9 +76,9 @@
     <p>Contact Us</p>
     <div class="social">
       <!-- Social media icons - images stored in core/static/icons/ -->
-      <a href="#"><img src="{% static 'icons/facebook.jpg' %}" alt="Facebook"></a>
-      <a href="#"><img src="{% static 'icons/instagram.jpg' %}" alt="Instagram"></a>
-      <a href="#"><img src="{% static 'icons/x.jpg' %}" alt="X"></a>
+      <a href="#"><img src="{% static 'icons/facebook.svg' %}" alt="Facebook"></a>
+      <a href="#"><img src="{% static 'icons/instagram.svg' %}" alt="Instagram"></a>
+      <a href="#"><img src="{% static 'icons/x.svg' %}" alt="X"></a>
     </div>
     <!-- Admin login button - routes to adminlogin:admin_login URL -->
     <a href="{% url 'go_to_admin' %}" class="admin-btn">Admin</a>
