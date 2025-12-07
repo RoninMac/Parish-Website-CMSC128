@@ -14,19 +14,6 @@
         <h2>Date Posted: {{ announcement.date_posted }}</h2>
     </div>
     <pre>{{ announcement.content }}</pre>
-
-    {# TEMPORARILY COMMENT OUT PHOTO ACCESS #}
-    {% comment %}
-    {% if announcement.photo %}
-    <img src="{{ announcement.photo.url }}" alt="{{ announcement.subject }}" style="max-width:400px; max-height:400px;">
-    {%else%}
-    <img src="{% static 'icons/logoPNG.png' %}" class="parish-logo" style = "width: 200px; height: auto;">
-    {% endif %}
-    {% endcomment %}
-
-    {# REPLACE WITH SAFE STATIC ASSET FOR TESTING #}
-    <img src="{% static 'icons/logoPNG.png' %}" class="parish-logo" style = "width: 200px; height: auto;">
-
-    </div>
+     </div>
 </body>
-</html>
+</html> 
